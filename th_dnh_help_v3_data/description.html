@@ -36,17 +36,17 @@
    <TR class = "tag">
     <TD class = "tag_element">Shift-JIS</TD>
     <TD class = "tag_text">
-     テキストエディタで、SJIS,Shift-JISを選択することで、保存することができる形式です。<BR>
-     (0.12mやph3 [.0]以前は、この形式のファイルのみ読み込むことができました)<BR>
-     日本語設定のWindowsでのみ正常に表示することができます。<BR>
+      È un formato che può essere salvato selezionando SJIS o Shift-JIS con un editor di testo.<BR>
+      (Prima di 0.12m o ph3 [.0], solo i file in questo formato potevano essere letti)<BR>
+      Può essere visualizzato normalmente solo su Windows con impostazioni giapponesi.<BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">Unicode (UTF16LE)</TD>
     <TD class = "tag_text">
-     テキストエディタで、Unicode,UTF16,UTF16LEを選択することで、保存することができる形式です。<BR>
-     ファイル先頭にBOM(Byte Order Mark)が必要です。<BR>
-     (Byte Order Markは、通常はテキストエディタが自動的に付加してくれます)<BR>
+      È un formato che può essere salvato selezionando Unicode, UTF16, UTF16LE con un editor di testo.<BR>
+         All'inizio del file è richiesto un BOM (Byte Order Mark).<BR>
+            (Byte Order Mark viene solitamente aggiunto automaticamente da un editor di testo)<BR>
     </TD>
    </TR>
   </TABLE>
@@ -54,26 +54,26 @@
  <BR><HR>
 
 
- <SPAN class = "section_sub"><A name="Header">■スクリプトヘッダ</A></SPAN><BR>
- <P>スクリプトヘッダとは、弾幕風本体のメニューへの登録や自機スクリプトとして認識させるために<BR>
-    スクリプトの先頭に記述するテキストのことです。<BR>
-    「#～～～」で記述し、以下の種類があります。<BR>
+ <SPAN class = "section_sub"><A name="Header">■ Intestazione dello script</A></SPAN><BR>
+ <P>L'intestazione dello script viene utilizzata per registrare il corpo principale in stile danmaku nel menu e per riconoscerlo come uno script di auto-macchina.<BR>
+   Testo che appare all'inizio di uno script.<BR>
+      È descritto con "#~~~" e ci sono i seguenti tipi.<BR>
   <TABLE class = "tag">
    <TR class = "tag">
-    <TD class = "tag_elementT">要素</TD> <TD class = "tag_textT">説明</TD>
+    <TD class = "tag_elementT">Elemento</TD> <TD class = "tag_textT">Descrizione</TD>
    </TR>
    <TR class = "tag">
-    <TD class = "tag_element">#東方弾幕風[xxx]</TD>
+    <TD class = "tag_element">#Stile proiettile Touhou [xxx].</TD>
     <TD class = "tag_text">
-     「#東方弾幕風」を記述することで東方弾幕風本体のメニューに登録することができます。<BR>
-     また「#TouhouDanmakufu」でも同様の意味があります。<BR>
+      Scrivendo #東方弾幕風 o "#Touhou Danmaku Fuu", puoi registrarlo nel menu principale di Touhou Danmakufu.<BR>
+         Inoltre, "#TouhouDanmakufu" ha lo stesso significato.<BR>
      <BR>
-     以下の種類があります。<BR>
-     ・#東方弾幕風[Single]：単発スクリプトとしてメニューに登録します。<BR>
-     ・#東方弾幕風[Plural]：連続再生スクリプトとしてメニューに登録します。<BR>
-     ・#東方弾幕風[Stage]：ステージスクリプトとしてメニューに登録します。<BR>
-     ・#東方弾幕風[Package]：パッケージスクリプトとしてメニューに登録します。<BR>
-     ・#東方弾幕風[Player]：自機スクリプトとして弾幕風に認識させます。<BR>
+      Ci sono i seguenti tipi.<BR>
+     ・#TouhouDanmakufu[Single]：Registrato nel menu come script unico.<BR>
+     ・#TouhouDanmakufu[Plural]：Registrato nel menu come script di riproduzione continua.<BR>
+     ・#TouhouDanmakufu[Stage]：Registrato nel menu come script di livello.<BR>
+     ・#TouhouDanmakufu[Package]：Registrato nel menu come script di pacchetto.<BR>
+     ・#TouhouDanmakufu[Player]：Registrato nell'engine come script giocatore.<BR>
     </TD>
    </TR>
    <TR class = "tag">
