@@ -79,62 +79,62 @@
    <TR class = "tag">
     <TD class = "tag_element">#ScriptVersion[3]</TD>
     <TD class = "tag_text">
-     スクリプトバージョン3であることを示します。<BR>
-     スクリプトバージョン3のみしか再生できないため必須です。<BR>
+      Indica la versione 3 dello script.<BR>
+      è necessario perché deve riconoscre solo la versione 3 dello script.<BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">#ID["XXX"]</TD>
     <TD class = "tag_text">
-     スクリプトのIDです。<BR>
-     内部的にスクリプトを区別するのに使用します。<BR>
-     できるだけ他のスクリプトと一致しない名称にする方が良いです。<BR>
-     省略可能です。<BR>
-     省略した場合はファイル名になります。<BR>
+      ID dello script.<BR>
+      Utilizzato internamente per distinguere gli script.<BR>
+      È meglio usare un nome che non corrisponda il più possibile ad altri script.<BR>
+      Tuttavia questo codice è opzionale.<BR>
+      Se omesso, verrà utilizzato il nome del file.<BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">#Title["XXX"]</TD>
     <TD class = "tag_text">
-     メニューのタイトルに使用される文字列です。<BR>
+      Una stringa utilizzata per il titolo del menu.<BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">#Text["XXX"]</TD>
     <TD class = "tag_text">
-     メニューでの説明に使用される文字列です。<BR>
+      Una stringa utilizzata per la descrizione nel titolo del menu.<BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">#Image["XXX"]</TD>
     <TD class = "tag_text">
-     メニューの画像に使用される画像ファイルへのパスです。<BR>
-     640×480の画像を指定します。<BR>
-     実行ファイル位置からの相対パスです。<BR>
-     ただし[./～]のようにパスの最初に「./」をかくと、スクリプトファイルのあるフォルダからの相対パスになります。<BR>
+      Il percorso del file immagine utilizzato per le immagini del menu.<BR>
+      Specifica un'immagine 640x480.<BR>
+      È un percorso relativo dalla posizione del file eseguibile.<BR>
+         Tuttavia, se scrivi "./" all'inizio del percorso come [./~], sarà un percorso relativo dalla cartella in cui si trova il file di script.<BR>
      <BR>
-     省略可能です。<BR>
+    Questo codice è opzionale<BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">#System["XXX"]</TD>
     <TD class = "tag_text">
-     システムスクリプトへのパスです。<BR>
-     システムスクリプトではスコアや残機、敵ライフの表示などを行います。<BR>
+      Percorso degli script di sistema.<BR>
+         Nello script di sistema, punteggio, aerei rimanenti,vita nemica, ecc. vengono visu<BR>
      <BR>
-     実行ファイル位置からの相対パスです。<BR>
-     ただし[./～]のようにパスの最初に「./」をかくと、スクリプトファイルのあるフォルダからの相対パスになります。<BR>
+      È un percorso relativo dalla posizione del file eseguibile.<BR>
+         Tuttavia, se scrivi "./" all'inizio del percorso come [./~], sarà un percorso relativo dalla cartella in cui si trova il file di script.<BR>
      <BR>
-     省略可能です。<BR>
-     省略した場合「/script/default_system/Default_System.txt」のシステムスクリプトが適応されます。<BR>
+     Tuttavia è opzionale.<BR>
+      Se omesso「/script/default_system/Default_System.txt」vengono applicati gli script di sistema.<BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">#Background["XXX"]</TD>
     <TD class = "tag_text">
-     背景スクリプトへのパスです。<BR>
-     実行ファイル位置からの相対パスです。<BR>
-     ただし[./～]のようにパスの最初に「./」をかくと、スクリプトファイルのあるフォルダからの相対パスになります。<BR>
+      Il percorso dello script in background.<BR>
+      È un percorso relativo dalla posizione del file eseguibile.<BR>
+         Tuttavia, se scrivi "./" all'inizio del percorso come [./~], sarà un percorso relativo dalla cartella in cui si trova il file di script.<BR>
      <BR>
      省略可能です。<BR>
      省略した場合、背景は黒となります。<BR>
