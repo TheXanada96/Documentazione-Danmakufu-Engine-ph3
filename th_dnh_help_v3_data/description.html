@@ -136,43 +136,44 @@
       È un percorso relativo dalla posizione del file eseguibile.<BR>
          Tuttavia, se scrivi "./" all'inizio del percorso come [./~], sarà un percorso relativo dalla cartella in cui si trova il file di script.<BR>
      <BR>
-     省略可能です。<BR>
-     省略した場合、背景は黒となります。<BR>
+    Opzionale.<BR>
+      Se omesso, lo sfondo sarà nero.<BR>
      <BR>
-     内部的には、このパスを使用して、LoadScript→StartScriptしているだけです。<BR>
-     省略した場合でも、独自に背景用のスクリプトをLoadScript→StartScriptすれば背景は描画されます。<BR>
+      Internamente, questo percorso è usato solo per LoadScript→StartScript.<BR>
+        Anche se lo ometti, lo sfondo verrà disegnato se crei il tuo script per lo sfondo andando su CaricaScript → StartScript.<BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">#BGM["XXX"]</TD>
     <TD class = "tag_text">
-     BGMに使用されるファイルへのパスです。<BR>
-     実行ファイル位置からの相対パスです。<BR>
-     ただし[./～]のようにパスの最初に「./」をかくと、スクリプトファイルのあるフォルダからの相対パスになります。<BR>
+      Il percorso del file utilizzato per la musica di sottofondo. <BR>
+        È un percorso relativo dalla posizione del file eseguibile. <BR>
+        Tuttavia, se scrivi "./" all'inizio del percorso come [./~], sarà 
+        un percorso relativo dalla cartella in cui si trova il file di script. <BR>
      <BR>
-     省略可能です。<BR>
-     省略した場合は無音になります。<BR>
-     内部的には、このパスを使用して、音声再生をしているだけです。<BR>
-     省略した場合でも、独自に音声再生を行えばBGMは鳴ります。<BR>
+      Opzionale. <BR>
+        Se omesso, sarà muto. <BR>
+        Internamente utilizza solo questo percorso per riprodurre l'audio. <BR>
+        Anche se lo ometti, la musica di sottofondo suonerà se suoni la tua voce. <BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">#Player["XXX","YYY",...]</TD>
     <TD class = "tag_text">
-     このスクリプトで使用できる自機スクリプトへのパスです。<BR>
-     「,」で区切って複数の自機を登録します。<BR>
-     実行ファイル位置からの相対パスです。<BR>
-     ただし[./～]のようにパスの最初に「./」をかくと、スクリプトファイルのあるフォルダからの相対パスになります。<BR>
+      Il percorso dello script della macchina che può essere utilizzato con questo script. <BR>
+        Registra più dispositivi separati da ",". <BR>
+        È un percorso relativo dalla posizione del file eseguibile. <BR>
+        Tuttavia, se scrivi "./" all'inizio del percorso come [./~], sarà un percorso relativo dalla cartella in cui si trova il file di script. <BR>
      <BR>
-     省略可能です。<BR>
-     省略した場合は「/script/player/」下のすべての自機スクリプトが使用可能になります。<BR>
+      Opzionale. <BR>
+        Se omesso, saranno disponibili tutti gli script self-machine in "/script/player/". <BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">#ReplayName["XXX"]</TD>
     <TD class = "tag_text">
-     リプレイ用の自機名称です。<BR>
-     8文字以内で指定します。<BR>
+      Questo è il nome dell'aereo per il replay. <BR>
+        Specificare entro 8 caratteri. <BR>
     </TD>
    </TR>
   </TABLE>
@@ -180,10 +181,10 @@
  <BR><HR>
 
 
- <SPAN class = "section_sub"><A name="Embedded">■組み込みルーチン</A></SPAN><BR>
- <P>組み込みルーチンは「@XXX」で記述される特別なルーチンのことです。<BR>
-    特定のタイミングで弾幕風本体から自動的に呼び出されます。<BR>
-    以下の種類があります。<BR>
+ <SPAN class = "section_sub"><A name="Embedded">■ Routine incorporate</A></SPAN><BR>
+  <P>Le routine integrate sono routine speciali descritte con "@XXX". <BR>
+    Viene chiamato automaticamente dal corpo in stile danmaku in un momento specifico. <BR>
+    Ci sono i seguenti tipi. <BR>
 
   <TABLE class = "tag">
    <TR class = "tag">
@@ -192,39 +193,39 @@
    <TR class = "tag">
     <TD class = "tag_element">@Initialize</TD>
     <TD class = "tag_text">
-     スクリプト初期化時に一度だけ呼び出されます。<BR>
-     1回目の@MainLoopが呼び出される直前に呼ばれます。<BR>
+      Chiamato solo una volta all'inizializzazione dello script. <BR>
+        Chiamato appena prima che venga chiamato il primo @MainLoop. <BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">@Finalize</TD>
     <TD class = "tag_text">
-     スクリプト終了時に一度だけ呼び出されます。<BR>
+      Chiamato solo una volta alla fine dello script.<BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">@MainLoop</TD>
     <TD class = "tag_text">
-     スクリプトがアクティブな場合に毎フレーム一度ずつ呼び出されます。<BR>
+      Chiamato una volta per frame quando lo script è attivo.<BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">@Loading</TD>
     <TD class = "tag_text">
-     主にLoadScriptInThreadでのスクリプト読み込み時に呼び出され、<BR>
-     別スレッドでの初期化を行います。<BR>
+      Chiamato una volta per frame quando lo script è attivo.<BR>
+        Inizializza in un altro thread.<BR>
      <BR>
-     テクスチャや音声の読み込みにのみ使用でき、<BR>
-     オブジェクトの生成などを行うとエラーになります。<BR>
-     乱数も使用できません。<BR>
-     (実行タイミングが制御できないため、リプレイの再生に影響が出るため。)<BR>
+      Può essere utilizzato solo per caricare trame e suoni,<BR>
+        Si verifica un errore durante la creazione di un oggetto. <BR>
+        Anche i numeri casuali non sono ammessi. <BR>
+        (Poiché il tempo di esecuzione non può essere controllato, influisce sulla riproduzione del replay.)<BR>
     </TD>
    </TR>
    <TR class = "tag">
     <TD class = "tag_element">@Event</TD>
     <TD class = "tag_text">
-     特定のイベントが発生したときに呼び出されます。<BR>
-     <A href = "description.html#Event">イベント</A>を参照願います。<BR>
+      Chiamato quando si verifica un evento specifico.<BR>
+     <A href = "description.html#Event">evento</A>Per favore riferisci a<BR>
     </TD>
    </TR>
   </TABLE>
