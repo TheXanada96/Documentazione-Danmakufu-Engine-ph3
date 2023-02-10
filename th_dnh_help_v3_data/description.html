@@ -232,17 +232,17 @@
  </P>
  <BR><HR>
 
- <SPAN class = "section_sub"><A name="Single">■Singleスクリプト</A></SPAN><BR>
- <P>単発再生用スクリプトです。<BR>
-    スクリプトに「#東方弾幕風[Single]」と記述することで認識されます。<BR>
-    通常は敵のスペルカード1枚分に相当します。<BR>
-    以下に記述例を示します。<BR>
+ <SPAN class = "section_sub"><A name="Single">■Singolo script</A></SPAN><BR>
+ <P>Script per la riproduzione di un colpo.<BR>
+  È riconosciuto scrivendo "#Touhou Danmakufu [Single]" nella sceneggiatura.<BR>
+    Normalmente, equivale alla carta incantesimo di un nemico.<BR>
+      Di seguito è riportato un esempio di descrizione.<BR>
 <DIV Class="source"><PRE class="source">
-	#東方弾幕風[Single]
+	#Touhou Danmakufu[Singolo]
 	#ScriptVersion[<SPAN Class="source_number">3</SPAN>]
-	#Title[<SPAN Class="source_string">"星符「ミッドナイトレヴァリエ」"</SPAN>]
-	#Text[<SPAN Class="source_string">"Exルーミア最初のスペルカード：星符「ミッドナイトレヴァリエ」"</SPAN>]
-	#Image[<SPAN Class="source_string">"./img/ExRumia(星符「ミッドナイトレヴァリエ」).png"</SPAN>]
+	#Title[<SPAN Class="source_string">"Segno zodiacale 「Fantasia di mezzanotte」"</SPAN>]
+	#Text[<SPAN Class="source_string">"Prima Carta Incantesimo ExRumia: Segno Stellare「Fantasia di mezzanotte」"</SPAN>]
+	#Image[<SPAN Class="source_string">"./img/ExRumia(Segno zodiacale「Fantasia di mezzanotte」).png"</SPAN>]
 	#Background[<SPAN Class="source_string">"script/default_system/Default_Background_IceMountain.txt"</SPAN>]
 
 	<SPAN Class="source_reserve">#include</SPAN><SPAN Class="source_string">"script/default_system/Default_ShotConst.txt"</SPAN>
@@ -254,20 +254,20 @@
 	{
 		objEnemy = ObjEnemy_Create(OBJ_ENEMY_BOSS);
 		ObjEnemy_Regist(objEnemy);
-		ObjEnemy_SetDamageRate(objEnemy, <SPAN Class="source_number">10</SPAN>, <SPAN Class="source_number">10</SPAN>);<SPAN Class="source_comment">//披ダメージを10%に設定</SPAN>
+		ObjEnemy_SetDamageRate(objEnemy, <SPAN Class="source_number">10</SPAN>, <SPAN Class="source_number">10</SPAN>);<SPAN Class="source_comment">//Imposta il danno al 10%</SPAN>
 		TWork;
 		TRender;
 		TEnd;
 
-		DeleteShotAll(TYPE_ALL, TYPE_ITEM);<SPAN Class="source_comment">//出現と同時に敵弾を全て削除	</SPAN>
+		DeleteShotAll(TYPE_ALL, TYPE_ITEM);<SPAN Class="source_comment">//Rimuove tutti i proiettili nemici non appena compaiono</SPAN>
 	}
 
 	@MainLoop
 	{
 		<SPAN Class="source_reserve">let</SPAN> ex = ObjMove_GetX(objEnemy);
 		<SPAN Class="source_reserve">let</SPAN> ey = ObjMove_GetY(objEnemy);
-		ObjEnemy_SetIntersectionCircleToShot(objEnemy, ex, ey, <SPAN Class="source_number">32</SPAN>);<SPAN Class="source_comment">//当たり判定(自弾)登録</SPAN>
-		ObjEnemy_SetIntersectionCircleToPlayer(objEnemy, ex, ey, <SPAN Class="source_number">24</SPAN>);<SPAN Class="source_comment">//当たり判定(体当たり)登録</SPAN>
+		ObjEnemy_SetIntersectionCircleToShot(objEnemy, ex, ey, <SPAN Class="source_number">32</SPAN>);<SPAN Class="source_comment">//Imposta l'intersezione di sparo (proiettile automatico).</SPAN>
+		ObjEnemy_SetIntersectionCircleToPlayer(objEnemy, ex, ey, <SPAN Class="source_number">24</SPAN>);<SPAN Class="source_comment">//Imposta l'intersezione del giocatore (colpo subito).</SPAN>
 
 		<SPAN Class="source_reserve">yield</SPAN>;
 	}
@@ -277,15 +277,15 @@
 		<SPAN Class="source_reserve">alternative</SPAN>(GetEventType())
 		<SPAN Class="source_reserve">case</SPAN>(EV_REQUEST_LIFE)
 		{
-			SetScriptResult(<SPAN Class="source_number">1500</SPAN>);<SPAN Class="source_comment">//ライフを1500に設定</SPAN>
+			SetScriptResult(<SPAN Class="source_number">1500</SPAN>);<SPAN Class="source_comment">//Imposta la vita a 1500</SPAN>
 		}
 		<SPAN Class="source_reserve">case</SPAN>(EV_REQUEST_TIMER)
 		{
-			SetScriptResult(<SPAN Class="source_number">60</SPAN>);<SPAN Class="source_comment">//時間制限を60秒に設定</SPAN>
+			SetScriptResult(<SPAN Class="source_number">60</SPAN>);<SPAN Class="source_comment">//Imposta il limite di tempo a 60 secondi</SPAN>
 		}
 		<SPAN Class="source_reserve">case</SPAN>(EV_REQUEST_SPELL_SCORE)
 		{
-			SetScriptResult(<SPAN Class="source_number">30000</SPAN>);<SPAN Class="source_comment">//スペルカードボーナスを30000に設定</SPAN>
+			SetScriptResult(<SPAN Class="source_number">30000</SPAN>);<SPAN Class="source_comment">//Imposta il bonus della carta incantesimo a 30000</SPAN>
 		}
 	}
 
