@@ -293,7 +293,7 @@
 	<SPAN Class="source_comment">//～～～Controllo del nemico</SPAN>
 
 	<SPAN Class="source_comment">//----------------------------------------------------</SPAN>
-	<SPAN Class="source_comment">//終了待機タスク</SPAN>
+	<SPAN Class="source_comment">//Compito in attesa di essere completato</SPAN>
 	<SPAN Class="source_comment">//----------------------------------------------------</SPAN>
 	<SPAN Class="source_reserve">task</SPAN> TEnd
 	{
@@ -307,14 +307,14 @@
 		TExplosionA(ex, ey, <SPAN Class="source_number">10</SPAN>, <SPAN Class="source_number">0.6</SPAN>);
 		DeleteShotAll(TYPE_ALL, TYPE_ITEM);<SPAN Class="source_comment">//敵弾を全て削除	</SPAN>
 
-		<SPAN Class="source_comment">//連続再生の場合は敵を削除することで、</SPAN>
-		<SPAN Class="source_comment">//次の段階に進みます。</SPAN>
-		<SPAN Class="source_comment">//必ず削除してください。</SPAN>
+		<SPAN Class="source_comment">//In caso di riproduzione continua, elimina il nemico,</SPAN>
+		<SPAN Class="source_comment">//Procedi al passaggio successivo.</SPAN>
+		<SPAN Class="source_comment">//Assicurati di eliminarlo.</SPAN>
 		Obj_Delete(objEnemy);
 
 		<SPAN Class="source_reserve">loop</SPAN>(<SPAN Class="source_number">30</SPAN>){<SPAN Class="source_reserve">yield</SPAN>;}
 
-		<SPAN Class="source_comment">//最後はスクリプトをクローズしてください</SPAN>
+		<SPAN Class="source_comment">//Infine, chiudi lo script</SPAN>
 		CloseScript(GetOwnScriptID());
 	}
 
@@ -323,16 +323,16 @@
  <BR><HR>
 
 
- <SPAN class = "section_sub"><A name="Plural">■連続再生スクリプト</A></SPAN><BR>
- <P>連続再生用スクリプトです。<BR>
-    スクリプトに「#東方弾幕風[Plural]」と記述することで認識されます。<BR>
-    通常は敵のボス1体分に相当します。<BR>
-    以下に記述例を示します。<BR>
+ <SPAN class = "section_sub"><A name="Plural">■Script di riproduzione continua</A></SPAN><BR>
+ <P>Questo è uno script per la riproduzione continua.<BR>
+    Si riconosce scrivendo 「#東方弾幕風[Plural]」 nella sceneggiatura.<BR>
+    Di solito equivale a un boss nemico.BR>
+    Di seguito è riportato un esempio di descrizione.<BR>
 <DIV Class="source"><PRE class="source">
 	#東方弾幕風[Plural]
 	#ScriptVersion[<SPAN Class="source_number">3</SPAN>]
-	#Title[<SPAN Class="source_string">"Exルーミアスクリプト連続再生"</SPAN>]
-	#Text[<SPAN Class="source_string">"Exルーミアスペルカード"</SPAN>]
+	#Title[<SPAN Class="source_string">"Riproduzione continua dello script Ex Rumia"</SPAN>]
+	#Text[<SPAN Class="source_string">"Carta Magia Ex Rumia"</SPAN>]
 	#Image[<SPAN Class="source_string">"./img/ExRumia(星符「ミッドナイトレヴァリエ」).png"</SPAN>]
 	#Background[<SPAN Class="source_string">"script/default_system/Default_Background_IceMountain.txt"</SPAN>]
 
@@ -355,20 +355,20 @@
 	{
 		<SPAN Class="source_reserve">let</SPAN> dir = GetCurrentScriptDirectory();
 
-		<SPAN Class="source_comment">//ボスシーンを作成します。</SPAN>
+		<SPAN Class="source_comment">//Crea una scena con il boss.</SPAN>
 		<SPAN Class="source_reserve">let</SPAN> obj = ObjEnemyBossScene_Create();
 		ObjEnemyBossScene_Add(obj, <SPAN Class="source_number">0</SPAN>, dir ~ <SPAN Class="source_string">"ExRumia01.txt"</SPAN>);
 		ObjEnemyBossScene_Add(obj, <SPAN Class="source_number">0</SPAN>, dir ~ <SPAN Class="source_string">"ExRumiaSpell01.txt"</SPAN>);
 		ObjEnemyBossScene_LoadInThread(obj);
 		ObjEnemyBossScene_Regist(obj);
 
-		<SPAN Class="source_comment">//敵ボスシーンが終了するまで待機</SPAN>
+		<SPAN Class="source_comment">//Aspetta finché la scena del boss nemico non finisce</SPAN>
 		<SPAN Class="source_reserve">while</SPAN>(!Obj_IsDeleted(obj))
 		{
 			<SPAN Class="source_reserve">yield</SPAN>;
 		}
 
-		<SPAN Class="source_comment">//スクリプト終了</SPAN>
+		<SPAN Class="source_comment">//La sceneggiatura termina</SPAN>
 		CloseScript(GetOwnScriptID());
 	}
 </PRE></DIV>
@@ -376,17 +376,17 @@
  <BR><HR>
 
 
- <SPAN class = "section_sub"><A name="Stage">■Stageスクリプト</A></SPAN><BR>
- <P>ステージスクリプトです。<BR>
-    スクリプトに「#東方弾幕風[Stage]」と記述することで認識されます。<BR>
-    通常は1ステージ分に相当します。<BR>
-    以下に記述例を示します。<BR>
+ <SPAN class = "section_sub"><A name="Stage">■Sceneggiatura dello Stage</A></SPAN><BR>
+ <P>Questa è una sceneggiatura teatrale. (traduzione non corretta)<BR>
+    Si riconosce scrivendo 「#東方弾幕風[Stage]」 nella sceneggiatura<BR>
+    Di solito corrisponde a una fase.<BR>
+    Di seguito è riportato un esempio di descrizione.<BR>
     <BR>
  <DIV Class="source"><PRE class="source">
 	#東方弾幕風[Stage]
 	#ScriptVersion[<SPAN Class="source_number">3</SPAN>]
-	#Title[<SPAN Class="source_string">"EXルーミアテストステージ"</SPAN>]
-	#Text[<SPAN Class="source_string">"EXルーミアテストステージ"</SPAN>]
+	#Title[<SPAN Class="source_string">"Fase di prova EX Rumia"</SPAN>]
+	#Text[<SPAN Class="source_string">"Fase di prova EX Rumia"</SPAN>]
 	#Image[<SPAN Class="source_string">"./img/ExRumia(星符「ミッドナイトレヴァリエ」).png"</SPAN>]
 	#Background[<SPAN Class="source_string">"script/default_system/Default_Background_IceMountain.txt"</SPAN>]
 
