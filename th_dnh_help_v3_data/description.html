@@ -409,23 +409,23 @@
 	{
 		<SPAN Class="source_reserve">let</SPAN> dir = GetCurrentScriptDirectory();
 
-		<SPAN Class="source_comment">//ボス再生</SPAN>
+		<SPAN Class="source_comment">//ボス再生 (gioco del capo?)</SPAN>
 		<SPAN Class="source_reserve">let</SPAN> path = dir ~ <SPAN Class="source_string">"ExRumia_Plural.txt"</SPAN>;
 		<SPAN Class="source_reserve">let</SPAN> idScript = LoadScriptInThread(path);
-		<SPAN Class="source_reserve">loop</SPAN>(<SPAN Class="source_number">60</SPAN>){<SPAN Class="source_reserve">yield</SPAN>;}<SPAN Class="source_comment">//1秒くらいあれば、コンパイル完了すると思われる。</SPAN>
+		<SPAN Class="source_reserve">loop</SPAN>(<SPAN Class="source_number">60</SPAN>){<SPAN Class="source_reserve">yield</SPAN>;}<SPAN Class="source_comment">//Sembra che la compilazione verrà completata in circa 1 secondo.</SPAN>
 		StartScript(idScript);
 
-		<SPAN Class="source_comment">//敵ボスシーンが終了するまで待機</SPAN>
+		<SPAN Class="source_comment">//Attendi finché la scena del boss nemico non finisce</SPAN>
 		<SPAN Class="source_reserve">while</SPAN>(!IsCloseScript(idScript))
 		{
 			<SPAN Class="source_reserve">yield</SPAN>;
 		}
 
-		<SPAN Class="source_comment">//～～～敵の出現やボスの出現を繰り返す。</SPAN>
+		<SPAN Class="source_comment">//～～～Nemici e boss appaiono ripetutamente.</SPAN>
 
 		<SPAN Class="source_reserve">loop</SPAN>(<SPAN Class="source_number">240</SPAN>){<SPAN Class="source_reserve">yield</SPAN>;}
 
-	    <SPAN Class="source_comment">//ステージ終了</SPAN>
+	    <SPAN Class="source_comment">//La fase finisce</SPAN>
 		CloseStgScene();
 	}
 </PRE></DIV>
@@ -433,10 +433,10 @@
  <BR><HR>
 
 
- <SPAN class = "section_sub"><A name="Player">■自機スクリプト</A></SPAN><BR>
- <P>自機スクリプトです。<BR>
-    スクリプトに「#東方弾幕風[Player]」と記述することで自機用のスクリプトとして認識されます。<BR>
-    以下に記述例を示します。<BR>
+ <SPAN class = "section_sub"><A name="Player">■ Script della propria macchina</A></SPAN><BR>
+ <P>Questo è uno script della macchina.<BR>
+    Scrivendo 「#東方弾幕風[Player]」nello script, verrà riconosciuto come script per la tua macchina.<BR>
+    Di seguito è riportato un esempio della descrizione.<BR>
     <BR>
 <DIV Class="source"><PRE class="source">
 	#Image[<SPAN Class="source_string">"./ExRumiaImage.png"</SPAN>]
