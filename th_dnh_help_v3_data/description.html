@@ -448,13 +448,13 @@
 	@Initialize
 	{
 		<SPAN Class="source_reserve">let</SPAN> path = current ~ <SPAN Class="source_string">"Default_Player_RumiaShotData.txt"</SPAN>;
-		LoadPlayerShotData(path); <SPAN Class="source_comment">//自弾画像ロード</SPAN>
+		LoadPlayerShotData(path); <SPAN Class="source_comment">//Caricamento dell'immagine autoscattata</SPAN>
 
-		ObjPlayer_AddIntersectionCircleA(objPlayer, <SPAN Class="source_number">0</SPAN>, <SPAN Class="source_number">0</SPAN>, <SPAN Class="source_number">1</SPAN>, <SPAN Class="source_number">20</SPAN>); <SPAN Class="source_comment">//当たり判定登録</SPAN>
+		ObjPlayer_AddIntersectionCircleA(objPlayer, <SPAN Class="source_number">0</SPAN>, <SPAN Class="source_number">0</SPAN>, <SPAN Class="source_number">1</SPAN>, <SPAN Class="source_number">20</SPAN>); <SPAN Class="source_comment">//Premi la registrazione del giudizio<SPAN>
 
-		TImage();<SPAN Class="source_comment">//自機描画用タスク起動</SPAN>
-		TShot();<SPAN Class="source_comment">//弾発射用タスク起動</SPAN>
-		TMagicCircle();<SPAN Class="source_comment">//無敵時間魔法陣タスク起動</SPAN>
+		TImage();<SPAN Class="source_comment">//Avvia l'attività per disegnare la propria macchina</SPAN>
+		TShot();<SPAN Class="source_comment">//Avvia l'attività per sparare proiettili</SPAN>
+		TMagicCircle();<SPAN Class="source_comment">//Attivazione dell'attività del cerchio magico del tempo invincibile</SPAN>
 	}
 
 	@MainLoop
@@ -471,13 +471,13 @@
 		<SPAN Class="source_reserve">alternative</SPAN>(GetEventType())
 		<SPAN Class="source_reserve">case</SPAN>(EV_REQUEST_SPELL)
 		{
-			<SPAN Class="source_comment">//スペルカード要求</SPAN>
-			<SPAN Class="source_reserve">let</SPAN> spell = GetPlayerSpell();<SPAN Class="source_comment">//残りスペル数</SPAN>
+			<SPAN Class="source_comment">//richiesta di spell card</SPAN>
+			<SPAN Class="source_reserve">let</SPAN> spell = GetPlayerSpell();<SPAN Class="source_comment">//Numero di spell rimanenti</SPAN>
 			<SPAN Class="source_reserve">if</SPAN>(spell &gt;= <SPAN Class="source_number">1</SPAN>)
 			{
-				SetScriptResult(<SPAN Class="source_reserve">true</SPAN>);<SPAN Class="source_comment">//スペル発動可能</SPAN>
-				SetPlayerSpell(spell-<SPAN Class="source_number">1</SPAN>);<SPAN Class="source_comment">//スペル数を1減らす</SPAN>
-				TSpell();<SPAN Class="source_comment">//スペルタスク起動</SPAN>
+				SetScriptResult(<SPAN Class="source_reserve">true</SPAN>);<SPAN Class="source_comment">//Può lanciare spell</SPAN>
+				SetPlayerSpell(spell-<SPAN Class="source_number">1</SPAN>);<SPAN Class="source_comment">//Riduci il numero di spell di 1</SPAN>
+				TSpell();<SPAN Class="source_comment">//Inizia l'attività di spell</SPAN>
 			}
 			<SPAN Class="source_reserve">else</SPAN>
 			{
@@ -486,41 +486,41 @@
 		}
 		<SPAN Class="source_reserve">case</SPAN>(EV_HIT)
 		{
-			<SPAN Class="source_comment">//被弾</SPAN>
+			<SPAN Class="source_comment">//Colpito da un proiettile</SPAN>
 			TExplosion();
 		}
 		<SPAN Class="source_reserve">case</SPAN>(EV_PLAYER_REBIRTH)
 		{
-			<SPAN Class="source_comment">//復帰</SPAN>
+			<SPAN Class="source_comment">//indietro</SPAN>
 			SetPlayerSpell(<SPAN Class="source_number">3</SPAN>);
 			SetPlayerInvincibilityFrame(<SPAN Class="source_number">180</SPAN>);
 		}
 	}
 
-	<SPAN Class="source_comment">//～～～省略</SPAN>
+	<SPAN Class="source_comment">//～～～omissione</SPAN>
 </PRE></DIV>
  </P>
  <BR><HR>
 
 
- <SPAN class = "section_sub"><A name="MenuScript">■メニュー系スクリプト</A></SPAN><BR>
- <P>一時停止中などに呼び出されるスクリプトで、<BR>
-    メニュー系シーンのカスタマイズを行えます。<BR>
-    サンプルは各デフォルトスクリプトを参照お願いします。<BR>
+ <SPAN class = "section_sub"><A name="MenuScript">■Script del menù</A></SPAN><BR>
+ <P>Uno script che viene chiamato durante la pausa, ecc.<BR>
+    È possibile personalizzare le scene del menu.<BR>
+    Fare riferimento a ciascuno script predefinito per gli esempi.<BR>
     <BR>
-    いずれもSetScriptResultで特定の値を設定する必要があります。<BR>
-    これらのスクリプトでは自機や弾などの操作を行うことはできません。<BR>
+    Entrambi richiedono l'impostazione di un valore specifico con SetScriptResult.<BR>
+    Questi script non possono controllare il tuo aereo o i tuoi proiettili.<BR>
     <BR>
   <TABLE class = "tag">
    <TR class = "tag">
-    <TD class = "tag_elementT">種類</TD> <TD class = "tag_textT">説明</TD>
+    <TD class = "tag_elementT">tipologia</TD> <TD class = "tag_textT">spiegazione</TD>
    </TR>
    <TR class = "tag">
-    <TD class = "tag_element">一時停止</TD>
+    <TD class = "tag_element">fermarsi temporaneamente</TD>
     <TD class = "tag_text">
-     一時停止(ポーズ)中に呼び出されるスクリプトです。<BR>
-     システムスクリプト中で「SetPauseScriptPath」で使用スクリプトを設定します。<BR>
-     デフォルトでは「/script/default_system/Default_Pause.txt」が使用されます。<BR>
+     Questo è uno script che viene chiamato durante una pausa.<BR>
+     Imposta lo script da utilizzare con "SetPauseScriptPath" nello script di sistema.<BR>
+     Per impostazione predefinita viene utilizzato "/script/default_system/Default_Pause.txt".<BR>
      <BR>
      SetScriptResultに以下のいずれかを設定する必要があります。<BR>
      ・RESULT_CANCEL：再開<BR>
